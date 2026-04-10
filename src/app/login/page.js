@@ -18,7 +18,7 @@ export default function LoginPage(){
     setLoading(true);
     setNotif(null);
 
-    const res = await fetch("/api/login",{
+    const res = await fetch("http://76.13.192.195/login",{
       method:"POST",
       headers:{
         "Content-Type":"application/json"

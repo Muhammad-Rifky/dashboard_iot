@@ -63,15 +63,19 @@ client.on("message", (topic, message) => {
 
     db.query(
       `INSERT INTO sensor_data
-       (device_id, ph, suhu, tds, turbidity)
+       (device_id, ph, tds, suhu, turbidity)
        VALUES (?, ?, ?, ?, ?)`,
       [
         data.device_id,
         data.ph,
-        data.suhu,
         data.tds,
+        data.suhu,
         data.turbidity
-      ]
+      ],
+      (err, result) => {
+        if (err) console.log("❌ DB ERROR:", err);
+        else console.log("✅ SENSOR DATA INSERTED:", result);
+      }
     );
 
     db.query(
