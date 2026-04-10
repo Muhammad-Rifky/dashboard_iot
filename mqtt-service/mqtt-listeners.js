@@ -11,7 +11,7 @@ server.listen(3001, () => {
   console.log("WebSocket running on port 3001");
 });
 
-const client = mqtt.connect("mqtt://192.168.1.18:1883");
+const client = mqtt.connect("mqtt://localhost:1883");
 
 const db = mysql.createConnection({
   host: "127.0.0.1",
